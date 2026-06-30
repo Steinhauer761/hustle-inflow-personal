@@ -1,0 +1,48 @@
+{
+  "name": "MusicLink",
+  "type": "object",
+  "properties": {
+    "platform": {
+      "type": "string",
+      "enum": [
+        "spotify",
+        "amazon",
+        "apple",
+        "youtube",
+        "other"
+      ],
+      "description": "Music platform"
+    },
+    "title": {
+      "type": "string",
+      "description": "Playlist or profile title"
+    },
+    "url": {
+      "type": "string",
+      "description": "Link to playlist/profile"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "platform",
+    "title",
+    "url"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

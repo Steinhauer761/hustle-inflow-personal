@@ -1,0 +1,92 @@
+{
+  "name": "EmailCampaign",
+  "type": "object",
+  "properties": {
+    "campaign_name": {
+      "type": "string",
+      "description": "Name of the campaign"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Email subject line"
+    },
+    "message": {
+      "type": "string",
+      "description": "Email body content"
+    },
+    "sent_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of emails sent"
+    },
+    "open_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of unique opens"
+    },
+    "click_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of link clicks"
+    },
+    "recipients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "sent",
+              "failed",
+              "bounced"
+            ]
+          },
+          "sent_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "opened_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "List of recipients with tracking data"
+    },
+    "sent_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When campaign was sent"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "campaign_name",
+    "subject",
+    "message"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Document",
+  "type": "object",
+  "properties": {
+    "file_url": {
+      "type": "string",
+      "description": "Uploaded file URL"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Original file name"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "resume",
+        "cover_letter",
+        "resume_or_coverletter",
+        "other"
+      ],
+      "description": "Document category"
+    },
+    "uploaded_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Upload date"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "file_url",
+    "category"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

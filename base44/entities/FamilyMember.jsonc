@@ -1,0 +1,86 @@
+{
+  "name": "FamilyMember",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Full name"
+    },
+    "relationship": {
+      "type": "string",
+      "enum": [
+        "myself",
+        "partner",
+        "child",
+        "parent",
+        "sibling",
+        "other"
+      ],
+      "description": "Relationship to user"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Profile photo URL"
+    },
+    "cover_color": {
+      "type": "string",
+      "description": "Profile card accent color (hex)"
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date"
+    },
+    "allergies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of allergies"
+    },
+    "food_preferences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Food likes and dislikes"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Photo album"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

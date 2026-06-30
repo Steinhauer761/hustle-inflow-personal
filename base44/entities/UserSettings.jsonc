@@ -1,0 +1,152 @@
+{
+  "name": "UserSettings",
+  "type": "object",
+  "properties": {
+    "city": {
+      "type": "string"
+    },
+    "province_state": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "temperature_unit": {
+      "type": "string",
+      "enum": [
+        "celsius",
+        "fahrenheit"
+      ],
+      "default": "fahrenheit"
+    },
+    "interests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "budget_preference": {
+      "type": "string",
+      "enum": [
+        "budget",
+        "moderate",
+        "splurge"
+      ],
+      "default": "moderate"
+    },
+    "food_preferences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ai_tone": {
+      "type": "string",
+      "enum": [
+        "funny",
+        "supportive",
+        "sarcastic",
+        "calm",
+        "motivational"
+      ],
+      "default": "funny"
+    },
+    "app_theme": {
+      "type": "string",
+      "enum": [
+        "hustledark",
+        "neonflow",
+        "executive",
+        "crypto"
+      ],
+      "default": "hustledark",
+      "description": "Visual theme preference"
+    },
+    "onboarding_complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "keno_balance": {
+      "type": "number",
+      "default": 100000,
+      "description": "Keno game token balance"
+    },
+    "main_balance": {
+      "type": "number",
+      "default": 0,
+      "description": "Main wallet balance"
+    },
+    "fireball_meter": {
+      "type": "number",
+      "default": 0,
+      "description": "Progress meter for fireball hits"
+    },
+    "free_spins": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of free Keno spins remaining"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "notifications_email": {
+      "type": "boolean",
+      "default": true
+    },
+    "notifications_push": {
+      "type": "boolean",
+      "default": true
+    },
+    "privacy_public": {
+      "type": "boolean",
+      "default": false
+    },
+    "referral_code": {
+      "type": "string"
+    },
+    "referred_by_code": {
+      "type": "string"
+    },
+    "fitness_unlocked": {
+      "type": "boolean",
+      "default": false
+    },
+    "active_coach_id": {
+      "type": "string",
+      "description": "ID of the selected CoachProfile"
+    },
+    "has_visual_coach": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if they bought the $9.99 Visual Coach add-on"
+    },
+    "ai_voice_id": {
+      "type": "string",
+      "description": "Selected AI assistant voice ID"
+    },
+    "admin_god_mode": {
+      "type": "boolean",
+      "default": false,
+      "description": "Admin override to unlock all tiers"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    }
+  },
+  "required": [],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

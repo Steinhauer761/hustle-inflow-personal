@@ -1,0 +1,68 @@
+{
+  "name": "Expense",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Merchant or description"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Amount spent"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "food",
+        "pet_care",
+        "home",
+        "transport",
+        "health",
+        "entertainment",
+        "shopping",
+        "bills",
+        "other"
+      ],
+      "default": "other"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of expense"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "Receipt/invoice image URL"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "scanned"
+      ],
+      "default": "manual"
+    }
+  },
+  "required": [
+    "name",
+    "amount",
+    "date"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

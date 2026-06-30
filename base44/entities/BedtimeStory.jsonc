@@ -1,0 +1,65 @@
+{
+  "name": "BedtimeStory",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the story"
+    },
+    "author": {
+      "type": "string",
+      "description": "Who wrote or narrated the story"
+    },
+    "target_audience": {
+      "type": "string",
+      "enum": [
+        "kids",
+        "adults"
+      ],
+      "default": "kids"
+    },
+    "content": {
+      "type": "string",
+      "description": "The full text of the story"
+    },
+    "cover_image_url": {
+      "type": "string",
+      "description": "Optional URL for the story's cover image"
+    },
+    "audio_url": {
+      "type": "string",
+      "description": "Optional URL for AI-generated or uploaded audio narration"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "mood": {
+      "type": "string",
+      "default": "calm"
+    },
+    "category": {
+      "type": "string",
+      "default": "classic"
+    }
+  },
+  "required": [
+    "title",
+    "content",
+    "target_audience"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

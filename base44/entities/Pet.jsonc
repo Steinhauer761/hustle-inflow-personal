@@ -1,0 +1,95 @@
+{
+  "name": "Pet",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "species": {
+      "type": "string",
+      "enum": [
+        "dog",
+        "cat",
+        "bird",
+        "fish",
+        "hamster",
+        "rabbit",
+        "reptile",
+        "other"
+      ]
+    },
+    "breed": {
+      "type": "string"
+    },
+    "photo_url": {
+      "type": "string"
+    },
+    "cover_color": {
+      "type": "string",
+      "description": "Profile card accent color (hex)"
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date"
+    },
+    "vet_name": {
+      "type": "string"
+    },
+    "vet_phone": {
+      "type": "string"
+    },
+    "next_vet_visit": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_grooming": {
+      "type": "string",
+      "format": "date"
+    },
+    "feeding_schedule": {
+      "type": "string",
+      "description": "Feeding notes"
+    },
+    "medications": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Photo album"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

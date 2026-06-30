@@ -1,0 +1,40 @@
+{
+  "name": "PhotoAlbum",
+  "type": "object",
+  "properties": {
+    "file_url": {
+      "type": "string",
+      "description": "Uploaded photo file URL"
+    },
+    "caption": {
+      "type": "string",
+      "description": "Photo caption or description"
+    },
+    "uploaded_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date photo was uploaded"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "file_url"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

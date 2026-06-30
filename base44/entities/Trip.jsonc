@@ -1,0 +1,152 @@
+{
+  "name": "Trip",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Trip name"
+    },
+    "destination": {
+      "type": "string"
+    },
+    "trip_type": {
+      "type": "string",
+      "enum": [
+        "road_trip",
+        "flight",
+        "vacation",
+        "day_trip",
+        "other"
+      ],
+      "default": "road_trip"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "budget": {
+      "type": "number"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "packing_list": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "flights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "airline": {
+            "type": "string"
+          },
+          "flight_number": {
+            "type": "string"
+          },
+          "departure_airport": {
+            "type": "string"
+          },
+          "arrival_airport": {
+            "type": "string"
+          },
+          "departure_datetime": {
+            "type": "string"
+          },
+          "arrival_datetime": {
+            "type": "string"
+          },
+          "confirmation_code": {
+            "type": "string"
+          },
+          "file_url": {
+            "type": "string"
+          },
+          "file_label": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "hotels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "check_in": {
+            "type": "string"
+          },
+          "check_out": {
+            "type": "string"
+          },
+          "confirmation_code": {
+            "type": "string"
+          },
+          "cost_per_night": {
+            "type": "number"
+          },
+          "file_url": {
+            "type": "string"
+          },
+          "file_label": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "file_url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planning",
+        "booked",
+        "completed"
+      ],
+      "default": "planning"
+    }
+  },
+  "required": [
+    "title",
+    "destination"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

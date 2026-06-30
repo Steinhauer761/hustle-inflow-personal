@@ -1,0 +1,70 @@
+{
+  "name": "ShoppingItem",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Item name"
+    },
+    "quantity": {
+      "type": "string",
+      "description": "e.g. 2 lbs, 1 pack"
+    },
+    "store": {
+      "type": "string",
+      "description": "Store name"
+    },
+    "store_section": {
+      "type": "string",
+      "enum": [
+        "produce",
+        "dairy",
+        "meat",
+        "bakery",
+        "frozen",
+        "pantry",
+        "beverages",
+        "household",
+        "personal_care",
+        "other"
+      ],
+      "default": "other"
+    },
+    "purchased": {
+      "type": "boolean",
+      "default": false
+    },
+    "added_by": {
+      "type": "string",
+      "description": "Name of family member who added"
+    },
+    "recipe_link": {
+      "type": "string",
+      "description": "Recipe or meal plan this is for"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "list_id": {
+      "type": "string",
+      "description": "Shopping list group id"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

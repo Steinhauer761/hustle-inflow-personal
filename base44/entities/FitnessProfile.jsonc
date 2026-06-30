@@ -1,0 +1,57 @@
+{
+  "name": "FitnessProfile",
+  "type": "object",
+  "properties": {
+    "height": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "number"
+    },
+    "body_fat": {
+      "type": "number"
+    },
+    "goals": {
+      "type": "string"
+    },
+    "xp": {
+      "type": "number",
+      "default": 0
+    },
+    "coins": {
+      "type": "number",
+      "default": 0
+    },
+    "daily_steps_goal": {
+      "type": "number",
+      "default": 10000
+    },
+    "water_goal_oz": {
+      "type": "number",
+      "default": 128
+    },
+    "current_streak": {
+      "type": "number",
+      "default": 0
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    }
+  },
+  "required": [],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

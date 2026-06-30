@@ -1,0 +1,53 @@
+{
+  "name": "CoachProfile",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The coach's name"
+    },
+    "specialty": {
+      "type": "string",
+      "description": "Their training style (e.g., Drill Sergeant, Form Expert)"
+    },
+    "persona_description": {
+      "type": "string",
+      "description": "Used by the AI to shape the audio cues and motivation"
+    },
+    "voice_id": {
+      "type": "string",
+      "description": "ID for the text-to-speech voice model"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "Profile picture of the digital coach"
+    },
+    "is_premium": {
+      "type": "boolean",
+      "default": false,
+      "description": "Requires the $9.99 Visual Coach add-on"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "name",
+    "specialty"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

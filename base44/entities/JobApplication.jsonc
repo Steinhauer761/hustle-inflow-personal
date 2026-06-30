@@ -1,0 +1,60 @@
+{
+  "name": "JobApplication",
+  "type": "object",
+  "properties": {
+    "job_title": {
+      "type": "string",
+      "description": "Job title applied for"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company name"
+    },
+    "resume_url": {
+      "type": "string",
+      "description": "Uploaded resume file URL"
+    },
+    "cover_letter_url": {
+      "type": "string",
+      "description": "Uploaded cover letter file URL"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "viewed",
+        "responded",
+        "rejected"
+      ],
+      "default": "submitted",
+      "description": "Application status"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    },
+    "applied_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "job_title",
+    "company",
+    "resume_url"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

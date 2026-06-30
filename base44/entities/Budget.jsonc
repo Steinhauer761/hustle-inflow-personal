@@ -1,0 +1,46 @@
+{
+  "name": "Budget",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "food",
+        "pet_care",
+        "home",
+        "transport",
+        "health",
+        "entertainment",
+        "shopping",
+        "bills",
+        "other"
+      ]
+    },
+    "monthly_limit": {
+      "type": "number",
+      "description": "Monthly budget cap"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "category",
+    "monthly_limit"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

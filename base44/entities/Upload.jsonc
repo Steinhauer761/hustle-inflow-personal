@@ -1,0 +1,53 @@
+{
+  "name": "Upload",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "File name"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "Uploaded file URL"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "receipt",
+        "invoice",
+        "document",
+        "image",
+        "medical",
+        "pet",
+        "school",
+        "other"
+      ],
+      "default": "other"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Amount if receipt/invoice"
+    }
+  },
+  "required": [
+    "name",
+    "file_url"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
