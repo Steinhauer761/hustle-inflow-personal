@@ -9,7 +9,8 @@ export default function App() {
 
   const [input, setInput] = useState("");
 
-  const toggleTask = (id: number) => {
+  const toggleTask = (id) => {
+
     setTasks(tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
   };
 
