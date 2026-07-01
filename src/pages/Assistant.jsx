@@ -1,7 +1,7 @@
 const handleSendMessage = async (userMessage) => {
   if (!userMessage.trim()) return;
 
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  const apiKey = import.meta.env.VITE_GE_API_KEY;
 
   if (!apiKey) {
     console.error("API Key missing from environment variables.");
