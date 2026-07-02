@@ -43,7 +43,6 @@ export default function Login() {
       icon={LogIn}
       title="Welcome back"
       subtitle="Log in to your account"
-              footer={
           footer={
       <>
         Don't have an account?{" "}
@@ -54,8 +53,4 @@ export default function Login() {
     }
   />
 );
-
-  >
-    {/* Your form content goes here */}
-  </AuthLayout>
-);
+        
