@@ -1,4 +1,5 @@
           import React, { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   const [tasks, setTasks] = useState([
@@ -105,6 +106,7 @@ export default function App() {
           ))}
         </div>
       </section>
+      <Analytics />
     </div>
   );
 }
