@@ -43,7 +43,7 @@ export default function Login() {
       icon={LogIn}
       title="Welcome back"
       subtitle="Log in to your account"
-       footer={
+           footer={
       <>
         Don't have an account?{" "}
         <Link to="/register" className="text-primary">
@@ -52,6 +52,8 @@ export default function Login() {
       </>
     }
   />
+);
+
 );
  
   />
