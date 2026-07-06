@@ -14,9 +14,7 @@ export default function App() {
     setTasks(tasks.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)));
   };
           
-    setTasks(tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
-  };
-
+    
   const handleAddTask = () => {
     if (!input.trim()) return;
     setTasks([
